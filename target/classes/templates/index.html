@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <title>Quote Levelling - Menu</title>
+</head>
+<body>
+    
+    <nav class="nav">
+        <span th:text="${user}"></span>
+        <details class="dropdown">
+            <summary role="button" class="secondary">Tema</summary>
+            <ul>
+              <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+              <li><a href="#" data-theme-switcher="light">Light</a></li>
+              <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+            </ul>
+          </details>
+            <section id="modal">
+            <button data-target="modal1" onclick="toggleModal(event)">Sair</button>
+                <dialog id="modal1">
+                    <article>
+                        <h2>Sair</h2>
+                        <p>Tem certeza que deseja sair da aplicação?</p>
+                        <footer>
+                            <button onclick="window.location.href='/logout'">Sair</button>
+                            <button onclick="closeModal(document.getElementById('modal1'))">Fechar</button>
+                        </footer>
+                    </article>
+                </dialog>
+            </section>
+                    
+    </nav>
+    <div class="media">
+    <h1>QuoteLevelling</h1>
+
+    <h2>Bem-vindo a nossa aplicação!</h2>
+
+    <details class="dropdown">
+        <summary role="button" class="secondary">Menu</summary>
+        <ul>
+            <li><a href="/cotacoes">Cotações</a></li>
+            <li><a href="/materiais">Materiais/Produtos</a></li>
+            <li><a href="/enderecos">Endereços</a></li>
+        </ul>
+    </details>
+    
+    </div>
+    <script src="theme.js"></script>
+    <script src="modal.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+.media{
+    padding: 2rem;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 1rem;
+}
+
+@media(max-width: 1200px){
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 900px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px){
+    .grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.container{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center; 
+    margin: 0.5rem; 
+    
+}
+
+nav .dropdown,
+
+nav p.grid {
+    margin: 0;
+}
+nav p.grid {
+    display: flex;
+    align-items: center;
+}
+
+separar {
+    justify-content: space-between;
+    display: flex;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem; 
+    margin-top: 2rem;
+
+}
+
+.section {
+    border: 1px solid #ccc; /* Cor da borda e sua espessura */
+    border-radius: 4px; /* Arredonda os cantos da borda */
+    margin-bottom: 1rem; /* Adiciona espaço entre as seções */
+    padding: 1rem; /* Adiciona um espaço interno para o conteúdo */
+}
+
