@@ -87,3 +87,15 @@ separar {
     padding: 1rem; /* Adiciona um espaço interno para o conteúdo */
 }
 
+.praia-image {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    max-height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}

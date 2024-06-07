@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,50 +8,116 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="global.css">
-    <title>Quote Levelling - Menu</title>
+    <title>PraiApp - Menu</title>
+    <style>
+        .card {
+            border: 2px solid #ccc; /* Adiciona uma borda de 2px sólida com cor cinza */
+            border-radius: 5px; /* Adiciona bordas arredondadas */
+            margin-bottom: 20px; /* Espaçamento inferior entre os retângulos */
+            padding: 15px; /* Adiciona padding interno */
+            width: calc(100% - 30px); /* Largura dos retângulos */
+        }
+
+        /* Estilo para botões do Picocss dentro dos retângulos */
+        .card .btn {
+            margin-top: 15px; /* Espaçamento superior entre o texto e o botão */
+            display: inline-block;
+            background-color: #007bff; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto do botão */
+            padding: 10px 20px; /* Padding interno do botão */
+            border: none; /* Remove a borda do botão */
+            border-radius: 5px; /* Adiciona bordas arredondadas ao botão */
+            text-decoration: none; /* Remove o sublinhado do texto do botão */
+            transition: background-color 0.3s; /* Adiciona transição suave na mudança de cor de fundo */
+        }
+
+        .card .btn:hover {
+            background-color: #0056b3; /* Altera a cor de fundo ao passar o mouse */
+        }
+    </style>
 </head>
 <body>
     
-    <nav class="nav">
+    <nav class="nav" style="display: flex; align-items: center; border-bottom: 2px solid #ccc; padding-bottom: 10px;">
         <span th:text="${user}"></span>
-        <details class="dropdown">
-            <summary role="button" class="secondary">Tema</summary>
-            <ul>
-              <li><a href="#" data-theme-switcher="auto">Auto</a></li>
-              <li><a href="#" data-theme-switcher="light">Light</a></li>
-              <li><a href="#" data-theme-switcher="dark">Dark</a></li>
-            </ul>
-          </details>
-            <section id="modal">
+        <h1 style="flex-grow: 1; text-align: center;">PraiApp</h1>
+        <div style="margin-right: 10px;"> <!-- Adicionando margem à direita -->
+            <details class="dropdown">
+                <summary role="button" class="secondary">Tema</summary>
+                <ul>
+                    <li><a href="#" data-theme-switcher="auto">Automático</a></li>
+                    <li><a href="#" data-theme-switcher="light">Claro</a></li>
+                    <li><a href="#" data-theme-switcher="dark">Escuro</a></li>
+                </ul>
+            </details>
+        </div>
+        <section id="modal" style="margin-top: 20px;"> <!-- Adicionando margem superior -->
             <button data-target="modal1" onclick="toggleModal(event)">Sair</button>
-                <dialog id="modal1">
-                    <article>
-                        <h2>Sair</h2>
-                        <p>Tem certeza que deseja sair da aplicação?</p>
-                        <footer>
-                            <button onclick="window.location.href='/logout'">Sair</button>
-                            <button onclick="closeModal(document.getElementById('modal1'))">Fechar</button>
-                        </footer>
-                    </article>
-                </dialog>
-            </section>
-                    
+            <dialog id="modal1">
+                <article>
+                    <h2>Sair</h2>
+                    <p>Tem certeza que deseja sair da aplicação?</p>
+                    <footer>
+                        <button onclick="window.location.href='/logout'">Sair</button>
+                        <button onclick="closeModal(document.getElementById('modal1'))">Fechar</button>
+                    </footer>
+                </article>
+            </dialog>
+        </section>
     </nav>
+    
+    
     <div class="media">
-    <h1>QuoteLevelling</h1>
+    
 
-    <h2>Bem-vindo a nossa aplicação!</h2>
+    <h2>Bem-vindo à nossa aplicação!</h2>
 
     <details class="dropdown">
         <summary role="button" class="secondary">Menu</summary>
         <ul>
-            <li><a href="/cotacoes">Cotações</a></li>
-            <li><a href="/materiais">Materiais/Produtos</a></li>
+            <li><a href="/praias">Praias</a></li>
+            <li><a href="/avaliacoes">Avaliações</a></li>
             <li><a href="/enderecos">Endereços</a></li>
         </ul>
     </details>
-    
+
     </div>
+
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Praias</h5>
+                        <p class="card-text">Veja e gerencie as praias, suas descrições e avaliações totais.</p>
+                        <a href="/praias" class="btn btn-primary button">Ver Praias</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Avaliações</h5>
+                        <p class="card-text">Gerencie as avaliações das praias, incluindo limpeza, estrutura, sinalização, monitoramento, poluição e conservação.</p>
+                        <a href="/avaliacoes" class="btn btn-primary button">Ver Avaliações</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Endereços</h5>
+                        <p class="card-text">Administre os endereços relacionados às praias e organizações.</p>
+                        <a href="/enderecos" class="btn btn-primary button">Ver Endereços</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     <script src="theme.js"></script>
     <script src="modal.js"></script>
 

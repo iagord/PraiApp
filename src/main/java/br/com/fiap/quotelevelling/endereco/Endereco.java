@@ -25,4 +25,7 @@ public class Endereco {
     @Column(name = "UF_ENDERECO")
     private String uf_endereco;
 
+    @Column(name = "CEP_ENDERECO")
+    private String cep_endereco; 
+
 }

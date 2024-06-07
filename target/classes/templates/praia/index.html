@@ -12,42 +12,65 @@
 </head>
 <body>
     
-    <nav class="nav">
+    <nav class="nav" style="display: flex; align-items: center; border-bottom: 2px solid #ccc; padding-bottom: 10px;">
         <span th:text="${user}"></span>
-        <details class="dropdown">
-            <summary role="button" class="secondary">Tema</summary>
-            <ul>
-              <li><a href="#" data-theme-switcher="auto">Auto</a></li>
-              <li><a href="#" data-theme-switcher="light">Light</a></li>
-              <li><a href="#" data-theme-switcher="dark">Dark</a></li>
-            </ul>
-        </details>
-        <details class="dropdown">
-            <summary role="button" class="secondary">Sair/Voltar</summary>
-            <ul>
-              <li><a href="/menu">Voltar</a></li>
-              <li><a href="/logout">Sair</a></li>
-            </ul>
-        </details>
+        <h1 style="flex-grow: 1; text-align: center;">PraiApp</h1>
+        <div style="margin-right: 10px;"> <!-- Adicionando margem à direita -->
+            <details class="dropdown">
+                <summary role="button" class="secondary">Tema</summary>
+                <ul>
+                    <li><a href="#" data-theme-switcher="auto">Automático</a></li>
+                    <li><a href="#" data-theme-switcher="light">Claro</a></li>
+                    <li><a href="#" data-theme-switcher="dark">Escuro</a></li>
+                </ul>
+            </details>
+        </div>
+        <section id="modal" style="margin-top: 20px;"> <!-- Adicionando margem superior -->
+            <details class="dropdown">
+                <summary role="button" class="secondary">Sair/Voltar</summary>
+                <ul>
+                  <li><a href="/menu">Voltar</a></li>
+                  <li><a href="/logout">Sair</a></li>
+                </ul>
+            </details>
+            <dialog id="modal1">
+                <article>
+                    <h2>Sair</h2>
+                    <p>Tem certeza que deseja sair da aplicação?</p>
+                    <footer>
+                        <button onclick="window.location.href='/logout'">Sair</button>
+                        <button onclick="closeModal(document.getElementById('modal1'))">Fechar</button>
+                    </footer>
+                </article>
+            </dialog>
+        </section>
     </nav>
 
-    <div class="header-container media">
-        <h1>QuoteLevelling</h1>
+    <div class="header-container media" style="display: flex; align-items: center;">
+        <h1 style="margin-right: 10px; margin-left: 10px;">Lista de Praias</h1> 
         <button class="outline"><a href="/avaliacoes/new" class="">Nova Avaliação</a></button>
     </div>
+    
 
-    <h2 class="header-container media">Lista de Praias</h2>
+    
 
-    <section class="grid media ">
+    <section class="grid media">
         <div th:each="praia : ${praias}" class="card section">
             <p class="title" th:text="'Código da Praia: ' + ${praia.id_praia}"></p>
             <p><strong>Nome:</strong> <span th:text="${praia.nome_praia}"></span></p>
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/65/7c/86/linda-calcadao.jpg?w=300&h=300&s=1" class="praia-image" alt="Praia Image" />
             <p><strong>Limpeza:</strong> <span th:text="${praia.tot_limpeza_praia}"></span></p>
+            <hr> 
             <p><strong>Estrutura:</strong> <span th:text="${praia.tot_estrutura_praia}"></span></p>
+            <hr> 
             <p><strong>Sinalização:</strong> <span th:text="${praia.tot_sinalizacao_praia}"></span></p>
+            <hr> 
             <p><strong>Monitoramento:</strong> <span th:text="${praia.tot_monitoramento_praia}"></span></p>
+            <hr> 
             <p><strong>Poluição:</strong> <span th:text="${praia.tot_poluicao_praia}"></span></p>
+            <hr> 
             <p><strong>Conservação:</strong> <span th:text="${praia.tot_conservacao_praia}"></span></p>
+            <hr> 
             <p><strong>Avaliação Total:</strong> <span th:text="${#numbers.formatDecimal(praia.total_praia, 1, 1)}"></span></p>
             
             <details>
@@ -60,7 +83,7 @@
     </section>
 
     
-
+    
     <script src="theme.js"></script>
 </body>
 </html>

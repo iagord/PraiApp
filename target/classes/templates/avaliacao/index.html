@@ -8,50 +8,70 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="global.css">
-    <title>Quote Levelling - Avaliações</title>
+    <title>PraiApp - Avaliações</title>
 </head>
 <body>
 
-    <nav class="nav">
+    <nav class="nav" style="display: flex; align-items: center; border-bottom: 2px solid #ccc; padding-bottom: 10px;">
         <span th:text="${user}"></span>
-        <details class="dropdown">
-            <summary role="button" class="secondary">Tema</summary>
-            <ul>
-              <li><a href="#" data-theme-switcher="auto">Auto</a></li>
-              <li><a href="#" data-theme-switcher="light">Light</a></li>
-              <li><a href="#" data-theme-switcher="dark">Dark</a></li>
-            </ul>
-        </details>
-        <details class="dropdown">
-            <summary role="button" class="secondary">Sair/Voltar</summary>
-            <ul>
-              <li><a href="/menu">Voltar</a></li>
-              <li><a href="/logout">Sair</a></li>
-            </ul>
-        </details>
+        <h1 style="flex-grow: 1; text-align: center;">PraiApp</h1>
+        <div style="margin-right: 10px;"> <!-- Adicionando margem à direita -->
+            <details class="dropdown">
+                <summary role="button" class="secondary">Tema</summary>
+                <ul>
+                    <li><a href="#" data-theme-switcher="auto">Automático</a></li>
+                    <li><a href="#" data-theme-switcher="light">Claro</a></li>
+                    <li><a href="#" data-theme-switcher="dark">Escuro</a></li>
+                </ul>
+            </details>
+        </div>
+        <section id="modal" style="margin-top: 20px;"> <!-- Adicionando margem superior -->
+            <details class="dropdown">
+                <summary role="button" class="secondary">Sair/Voltar</summary>
+                <ul>
+                  <li><a href="/menu">Voltar</a></li>
+                  <li><a href="/logout">Sair</a></li>
+                </ul>
+            </details>
+            <dialog id="modal1">
+                <article>
+                    <h2>Sair</h2>
+                    <p>Tem certeza que deseja sair da aplicação?</p>
+                    <footer>
+                        <button onclick="window.location.href='/logout'">Sair</button>
+                        <button onclick="closeModal(document.getElementById('modal1'))">Fechar</button>
+                    </footer>
+                </article>
+            </dialog>
+        </section>
     </nav>
 
-    <div class="header-container media">
-        <h1>PraiApp</h1>
+    <div class="header-container media" style="display: flex; align-items: center;">
+        <h1 style="margin-right: 10px; margin-left: 10px;">Lista de Avaliações</h1> 
         <button class="outline"><a href="/avaliacoes/new" class="">Nova Avaliação</a></button>
     </div>
 
-    <h2 class="header-container media">Lista de Avaliações</h2>
 
     <section class="grid media">
         <div th:each="avaliacao : ${avaliacoes}" class="card section">
             <p class="title" th:text="'Código da Avaliação: ' + ${avaliacao.id_avaliacao}"></p>
             <p><strong>Avaliação sobre:</strong> <span th:text="${avaliacao.praia.nome_praia}"></span></p>
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/65/7c/86/linda-calcadao.jpg?w=300&h=300&s=1" class="praia-image" alt="Praia Image" />
             <p><strong>Avaliação da Limpeza:</strong> <span th:text="${avaliacao.limpeza_avaliacao}"></span></p>
+            <hr> 
             <p><strong>Avaliação da Estrutura:</strong> <span th:text="${avaliacao.estrutura_avaliacao}"></span></p>
+            <hr> 
             <p><strong>Avaliação da Sinalização:</strong> <span th:text="${avaliacao.sinalizacao_avaliacao}"></span></p>
+            <hr> 
             <p><strong>Avaliação do Monitoramento:</strong> <span th:text="${avaliacao.monitoramento_avaliacao}"></span></p>
+            <hr> 
             <p><strong>Avaliação da Poluição:</strong> <span th:text="${avaliacao.poluicao_avaliacao}"></span></p>
+            <hr> 
             <p><strong>Avaliação da Conservação:</strong> <span th:text="${avaliacao.conservacao_avaliacao}"></span></p>
+            <hr> 
             <p><strong>Usuário que cadastrou:</strong> <span th:text="${avaliacao.user.name}"></span></p>
-            <!-- <p><strong>Seu responsável:</strong> <span th:text="${avaliacao.user.organizacao.responsavel.nome_responsavel}"></span></p> -->
-            <!-- <p><strong>Organização que faz parte:</strong> <span th:text="${avaliacao.user.organizacao.nome_organizacao}"></span></p> -->
-
+            
+    
             <details>
                 <summary>Funções</summary>
                 <form th:action="@{'/avaliacoes/' + ${avaliacao.id_avaliacao}}" method="post">
@@ -61,6 +81,7 @@
             </details>
         </div>
     </section>
+    
 
     <p th:if="${message}" th:text="${message}" class="message"></p>
     <p th:if="${error}" th:text="${error}" class="error"></p>
