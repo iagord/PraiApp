@@ -23,8 +23,6 @@ Antes de tudo, é necessário entender os pontos de cada tópico de avaliação:
 4. Monitoramento: Avalia quanto as organizações responsáveis estão se preocupando em monitorar e contribuir para o controle de todos os outros pontos de avaliação. Esse ponto é fundamental para a educação das pessoas que frequentam determinada região.
 5. Poluição: Trata de avaliar o quanto de resíduo está sendo descartado na praia. Estamos falando de canais, resíduos químicos, lixo contaminante e materiais não biodegradáveis, ou seja, tudo aquilo que é descartado indevidamente e acaba parando no mar.
 6. Conservação Ambiental: Avalia o quão bem cuidada está aquela praia para a conservação do habitat natural dos seres vivos da região, se o uso daquela praia está sendo feito de maneira sustentável e que não agride o meio ambiente.
-7. Total: Considera todos os pontos avaliados acima e gera uma avaliação geral sobre a praia.
-De certo modo, todos os pontos estão interligados. É evidente que todos os pontos de avaliação se correlacionam em certo nível, porém abordam separadamente diferentes tópicos. É assim que desejamos entregar uma solução de fácil entendimento e análise.
 
 
 ## GUIA PARA TESTES E RODAR A APLICAÇÃO DEVOPS:
