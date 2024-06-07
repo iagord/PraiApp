@@ -3,7 +3,8 @@
 Nome da Aplicação: PraiApp
 
 
-![image](https://github.com/HebertLins/Sprint-1-JAVA/assets/111543334/cfad3699-e26c-4688-ba36-528b5e970c8a)
+![image](https://github.com/iagord/PraiApp/assets/111543333/43824309-ffc9-4d50-9d76-571248fad813)
+
 
 ## GUIA PARA TESTES E RODAR A APLICAÇÃO DEVOPS:
 
