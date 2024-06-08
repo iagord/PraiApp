@@ -51,4 +51,4 @@ Antes de tudo, é necessário entender os pontos de cada tópico de avaliação:
 
 ## Vídeo explicativo
 
-PlaceHolder
+[YouTube](https://youtu.be/GvW3ywBNVIA)
